@@ -1,0 +1,16 @@
+# files
+*.log
+*.zip
+.DS_Store
+
+# folders
+node_modules/*
+coverage/*
+docs/*
+_local/*
+.tmp/*
+.idea/*
+
+# Editor directories and files
+.vscode
+.idea
