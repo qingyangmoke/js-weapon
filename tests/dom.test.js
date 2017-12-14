@@ -16,7 +16,7 @@ describe('DOM API:', function () {
       $elem.style.top = '0px';
       $elem.style.left = '0px';
     });
-    it(`JSWeapon.elementInViewport() should return true`, function () {
+    it(`elementInViewport() should return true`, function () {
       assert(elementInViewport($elem, false));
     });
   });
@@ -27,7 +27,7 @@ describe('DOM API:', function () {
       $elem.style.top = '0px';
       $elem.style.left = '-200px';
     });
-    it(`JSWeapon.elementInViewport() should return false`, function () {
+    it(`elementInViewport() should return false`, function () {
       assert.notEqual(elementInViewport($elem, false));
     });
     after(function () {
