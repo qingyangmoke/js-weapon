@@ -33,7 +33,6 @@ const building = ora('building...\n\n');
 building.start();
 
 new Promise((resolve, reject) => {
-  // 1.清空目录
   console.log(chalk.cyan(`1.clear dist directory ...\n\n`));
   rm(path.resolve(buildPath, `*`), err => {
     if (err) {
@@ -44,9 +43,20 @@ new Promise((resolve, reject) => {
   });
   console.log(chalk.green(`  clear complete\n\n`));
 }).then(() => {
-  // 2.拷贝js文件到根目录
   return new Promise((resolve, reject) => {
-    console.log(chalk.cyan('2.copy js files to dist ...\n\n'));
+    console.log(chalk.cyan('2.copy LICENSE\n'));
+    copy(`${rootPath}/LICENSE`, distPath, function (err, files) {
+      if (err) {
+        reject(err);
+        return;
+      };
+      resolve();
+      console.log(chalk.green('  copying LICENSE complete.\n'));
+    });
+  });
+}).then(() => {
+  return new Promise((resolve, reject) => {
+    console.log(chalk.cyan('3.copy js files to dist ...\n\n'));
     const folderList = fs.readdirSync(srcPath);
     folderList.forEach((item, index) => {
       var stat = fs.statSync(path.join(srcPath, item));
@@ -94,9 +104,8 @@ new Promise((resolve, reject) => {
     resolve();
   });
 }).then(() => {
-  // 3.webpack打包
   return new Promise((resolve, reject) => {
-    console.log(chalk.cyan('3.webpack building... \n'));
+    console.log(chalk.cyan('4.webpack building... \n'));
     webpack(config, function (err, stats) {
       if (err) {
         reject(err);
@@ -115,27 +124,13 @@ new Promise((resolve, reject) => {
     });
   });
 }).then(() => {
-  // 4.写入package.json
-  console.log(chalk.cyan('4.write package.json\n'));
+  console.log(chalk.cyan('5.write package.json\n'));
   fs.writeFileSync(path.resolve(distPath, 'package.json'), JSON.stringify(newPackage), {
     flag: 'w',
     encoding: 'utf8',
   });
   console.log(chalk.green('   write package.json complete.\n'));
   return Promise.resolve();
-}).then(() => {
-  // 5.拷贝LICENSE
-  return new Promise((resolve, reject) => {
-    console.log(chalk.cyan('5.copy LICENSE\n'));
-    copy(`${rootPath}/LICENSE`, distPath, function (err, files) {
-      if (err) {
-        reject(err);
-        return;
-      };
-      resolve();
-      console.log(chalk.green('  copying LICENSE complete.\n'));
-    });
-  });
 }).then(() => {
   console.log(chalk.green('Build finish.\n'));
 }).catch((err) => {
