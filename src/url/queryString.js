@@ -16,4 +16,4 @@ function queryString(name = '', defaultValue = '', url = null) {
   return result[1];
 }
 
-export default queryString;
+module.exports = queryString;

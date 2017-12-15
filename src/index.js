@@ -1,11 +1,11 @@
-import arrayEqual from './array/arrayEqual';
-import elementInViewport from './dom/elementInViewport';
+const arrayEqual = require('./array/arrayEqual');
+const elementInViewport = require('./dom/elementInViewport');
 
 function say() {
   console.log('hello world');
 }
 
-export {
+module.exports = {
   say,
   elementInViewport,
   arrayEqual,
