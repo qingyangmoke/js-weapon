@@ -6,8 +6,6 @@
 # folders
 node_modules/*
 coverage/*
-docs/*
-dist/*
 _local/*
 .tmp/*
 .idea/*
