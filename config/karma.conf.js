@@ -1,5 +1,4 @@
 // Karma configuration
-// Generated on Mon Nov 20 2017 14:33:15 GMT+0800 (中国标准时间)
 const pkg = require('../package.json');
 module.exports = function (config) {
   config.set({

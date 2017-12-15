@@ -14,4 +14,4 @@ function arrayEqual(arr1, arr2) {
   return true;
 }
 
-export default arrayEqual;
+module.exports = arrayEqual;

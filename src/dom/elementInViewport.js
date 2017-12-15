@@ -31,4 +31,4 @@ function elementInViewport(el, allInViewport = false, diff = 0) {
   }
 }
 
-export default elementInViewport;
+module.exports = elementInViewport;
