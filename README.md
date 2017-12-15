@@ -16,6 +16,7 @@
  npm run doc
 
 ```
+[#docs/index.html](https://qingyangmoke.github.io/js-weapon/docs/index.html)
 
 ## 测试
   ```
