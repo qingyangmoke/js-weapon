@@ -1,4 +1,3 @@
-var queryString = require('../url/queryString');
 /**
  * @desc 判断两个数组是否相等
  * @param {Array} arr1 - 数组1
@@ -7,7 +6,6 @@ var queryString = require('../url/queryString');
  * @see 代码改在摘自 - https://github.com/proYang/outils
  */
 function arrayEqual(arr1, arr2) {
-  console.log(queryString('aa'));
   if (arr1 === arr2) return true;
   if (arr1.length !== arr2.length) return false;
   for (let i = arr1.length - 1; i >= 0; i--) {
