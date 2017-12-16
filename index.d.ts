@@ -8,3 +8,7 @@ declare function assert(name: any): void;
 declare namespace assert {
   function notEqual(name: any): void;
 }
+
+declare namespace module {
+   var exports;
+}
