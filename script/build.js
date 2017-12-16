@@ -128,14 +128,6 @@ new Promise((resolve, reject) => {
         //     resolve();
         //   }
         // });
-        // function replacePromise(filePath) {
-        //   return new Promise((resolve, reject) => {
-        //     const data = fs.readFileSync(filePath, { encoding: 'utf8' });
-        //     const result = data.replace(your - regex - or - text, replacement - text);
-        //     fs.writeFileSync(filePath, result, { encoding: 'utf8' });
-        //     resolve();
-        //   });
-        // }
       });
       resolve();
     });
@@ -155,53 +147,3 @@ new Promise((resolve, reject) => {
   .catch((err) => {
     throw err;
   });
-// new Promise((resolve, reject) => {
-//   // 构建全量压缩包
-//   const building = ora('building...');
-//   building.start();
-//   rm(path.resolve(distPath, `*.js`), err => {
-//     if (err) throw (err);
-//     webpack(config, function (err, stats) {
-//       if (err) throw (err);
-//       building.stop();
-//       process.stdout.write(stats.toString({
-//         colors: true,
-//         modules: false,
-//         children: false,
-//         chunks: false,
-//         chunkModules: false,
-//       }) + '\n\n');
-//       resolve();
-//       console.log(chalk.green('  Build complete.\n'));
-//     });
-//   });
-// }).then(() => {
-//   console.log(chalk.cyan('  写入package.json.\n'));
-//   fs.writeFileSync(path.resolve(distPath, 'package.json'), JSON.stringify(newPackage), {
-//     flag: 'w',
-//     encoding: 'utf8',
-//   });
-//   console.log(chalk.green('  写入package.json complete.\n'));
-//   console.log(chalk.cyan('  copying LICENSE.\n'));
-//   copy(`${rootPath}/LICENSE`, distPath, function (err, files) {
-//     if (err) throw err;
-//     console.log(chalk.green('  copying LICENSE complete.\n'));
-//     // 替换模块文件
-//     const copying = ora('copying...\n');
-//     copying.start();
-//     const folderList = fs.readdirSync(srcPath);
-//     folderList.forEach((item, index) => {
-//       console.log(chalk.cyan(`  copying ${item}.\n`));
-//       copy(`src/${item}/*.js`, distPath, function (err, files) {
-//         if (err) throw err;
-//         console.log(chalk.green(`  copying ${item} complete.\n`));
-//         if (index === folderList.length - 1) {
-//           console.log(chalk.green('  Copy complete.\n'));
-//           copying.stop();
-//         }
-//       });
-//     });
-//   });
-// }).catch((err) => {
-//   throw err;
-// });
