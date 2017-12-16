@@ -79,6 +79,19 @@ new Promise((resolve, reject) => {
   })
   .then(() => {
     return new Promise((resolve, reject) => {
+      console.log(chalk.cyan('## copy README.md\n'));
+      copy(`${rootPath}/README.md`, distPath, function (err, files) {
+        if (err) {
+          reject(err);
+          return;
+        };
+        resolve();
+        console.log(chalk.green('  copying README.md complete.\n'));
+      });
+    });
+  })
+  .then(() => {
+    return new Promise((resolve, reject) => {
       console.log(chalk.cyan('## copy js files to dist ...\n\n'));
       const folderList = fs.readdirSync(srcPath);
       folderList.forEach((item, index) => {

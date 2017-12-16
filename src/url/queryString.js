@@ -4,6 +4,9 @@
  * @param {string} [defaultValue=''] - 默认值
  * @param {string} [url=null] - 地址
  * @return {string}  - 如果存在name的参数返回实际的参数值，否则返回defaultValue或者空字符
+ * @example
+ * var queryString = require('js-weapon/queryString');
+ * var from = queryString('from');
  */
 function queryString(name = '', defaultValue = '', url = null) {
   if (name === '') return defaultValue;

@@ -2,7 +2,7 @@
  * js-weapon
  * Description:js 常用代码库
  * Author: 清扬陌客
- * Version: v0.0.1
+ * Version: v0.0.2
  * Github: https://github.com/qingyangmoke/js-weapon.git
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -72,6 +72,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var arrayEqual = __webpack_require__(2);
 	var elementInViewport = __webpack_require__(3);
+	var queryString = __webpack_require__(4);
 
 	function say() {
 	  console.log('hello world');
@@ -79,7 +80,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 	  say: say,
+
 	  elementInViewport: elementInViewport,
+
+	  queryString: queryString,
+
 	  arrayEqual: arrayEqual
 	};
 
@@ -95,6 +100,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {Array} arr2 - 数组2
 	 * @return {Boolean} - true 相等 false不相等
 	 * @see 代码改在摘自 - https://github.com/proYang/outils
+	 * @example
+	 * var arrayEqual = require('js-weapon/arrayEqual');
+	 * arrayEqual([1,2,3],[1,2,3]);
 	 */
 	function arrayEqual(arr1, arr2) {
 	  if (arr1 === arr2) return true;
@@ -119,6 +127,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {Boolean} [allInViewport=false] - 是否严格要求全部在viewport true 必须全部在viewport里才算是在viewport中 false 有一小部分在viewport就算是在
 	 * @param {number} [diff=0] - 允许多少误差 正数
 	 * @see http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433
+	 * @example
+	 * var elementInViewport = require('js-weapon/elementInViewport');
+	 * elementInViewport(el);
 	 */
 	function elementInViewport(el) {
 	  var allInViewport = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
@@ -140,6 +151,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	module.exports = elementInViewport;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * 获取地址参数
+	 * @param {string} name - 参数名字
+	 * @param {string} [defaultValue=''] - 默认值
+	 * @param {string} [url=null] - 地址
+	 * @return {string}  - 如果存在name的参数返回实际的参数值，否则返回defaultValue或者空字符
+	 * @example
+	 * var queryString = require('js-weapon/queryString');
+	 * var from = queryString('from');
+	 */
+	function queryString() {
+	  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+	  var defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+	  var url = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+	  if (name === '') return defaultValue;
+	  url = url || location.search;
+	  /* eslint-disable */
+	  var result = url.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+	  if (result == null || result.length < 1) {
+	    return defaultValue;
+	  }
+	  return result[1];
+	}
+
+	module.exports = queryString;
 
 /***/ })
 /******/ ])

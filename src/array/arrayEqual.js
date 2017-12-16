@@ -4,6 +4,9 @@
  * @param {Array} arr2 - 数组2
  * @return {Boolean} - true 相等 false不相等
  * @see 代码改在摘自 - https://github.com/proYang/outils
+ * @example
+ * var arrayEqual = require('js-weapon/arrayEqual');
+ * arrayEqual([1,2,3],[1,2,3]);
  */
 function arrayEqual(arr1, arr2) {
   if (arr1 === arr2) return true;
