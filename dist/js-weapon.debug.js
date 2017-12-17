@@ -74,12 +74,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	var elementInViewport = __webpack_require__(3);
 	var queryString = __webpack_require__(4);
 
-	function say() {
+	function helloWorld() {
 	  console.log('hello world');
 	}
 
+	if (false) {
+	  console.log('hello DEBUG' + process.env.NODE_ENV);
+	}
+
 	module.exports = {
-	  say: say,
+	  version: '0.0.2',
+
+	  helloWorld: helloWorld,
 
 	  elementInViewport: elementInViewport,
 
@@ -95,7 +101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	"use strict";
 
 	/**
-	 * @desc 判断两个数组是否相等
+	 * 判断两个数组是否相等
 	 * @param {Array} arr1 - 数组1
 	 * @param {Array} arr2 - 数组2
 	 * @return {Boolean} - true 相等 false不相等

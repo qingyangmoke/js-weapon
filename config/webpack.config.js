@@ -14,6 +14,9 @@ const minConfig = merge(config, {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
+        pure_funcs: ['console.log'], // 配置发布时，不被打包的函数
+        // drop_debugger: true, // 发布时去除debugger
+        // drop_console: true // 发布时去除console
       },
     }),
   ],

@@ -1,7 +1,6 @@
 import queryString from '../src/url/queryString';
 describe('URL API:', function () {
   // location.search = '?from=test1&to=test2';
-
   describe('#queryString()', function () {
     it(`queryString("from","","?from=test1&to=test2") should return test1`, function () {
       assert(queryString('from', '', '?from=test1&to=test2') === 'test1');

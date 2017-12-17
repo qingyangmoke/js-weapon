@@ -1,8 +1,8 @@
 import elementInViewport from '../src/dom/elementInViewport';
 describe('DOM API:', function () {
   const $elem = document.createElement('DIV');
-  $elem.style.width = 100;
-  $elem.style.height = 100;
+  $elem.style.width = '100px';
+  $elem.style.height = '100px';
   $elem.style.position = 'absolute';
   const $body = document.body;
   $body.style.position = 'relative';

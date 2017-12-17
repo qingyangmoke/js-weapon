@@ -6,6 +6,7 @@ const rm = require('rimraf');
 const copy = require('copy');
 const chalk = require('chalk');
 const webpack = require('webpack');
+const Promise = require('promise');
 
 const config = require('../config/webpack.config');
 const pkg = require('../package.json');
@@ -23,6 +24,7 @@ const newPackage = {
   repository: pkg.repository,
   main: `${pkg.name}.min.js`,
   scripts: {},
+  types: 'types/index.d.ts',
   license: pkg.license,
   bugs: pkg.bugs,
   homepage: pkg.homepage,
@@ -31,7 +33,6 @@ const newPackage = {
 // 构建全量压缩包
 const building = ora('building...\n\n');
 building.start();
-
 new Promise((resolve, reject) => {
   console.log(chalk.cyan(`## clear dist directory ...\n\n`));
   rm(path.resolve(buildPath, `*`), err => {

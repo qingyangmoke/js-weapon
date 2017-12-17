@@ -6,7 +6,7 @@
  * supportWorker();
  */
 function supportWorker() {
-  return typeof (Worker) !== 'undefined';
+  return !!window['Worker'];
 }
 
 module.exports = supportWorker;

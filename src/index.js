@@ -2,12 +2,18 @@ const arrayEqual = require('./array/arrayEqual');
 const elementInViewport = require('./dom/elementInViewport');
 const queryString = require('./url/queryString');
 
-function say() {
+function helloWorld() {
   console.log('hello world');
 }
 
+if (DEBUG) {
+  console.log('hello DEBUG' + process.env.NODE_ENV);
+}
+
 module.exports = {
-  say,
+  version: '__PKG_VERSION__',
+
+  helloWorld,
 
   elementInViewport,
 

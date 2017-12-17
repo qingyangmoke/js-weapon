@@ -8,7 +8,8 @@ Description:js 常用代码库
 Author: ${pkg.author}
 Version: v${pkg.version}
 Github: https://github.com/qingyangmoke/js-weapon.git`
-;
+  ;
+console.log(process.env.NODE_ENV);
 
 const config = {
   entry: {
@@ -23,6 +24,9 @@ const config = {
   },
   plugins: [
     new webpack.BannerPlugin(banner),
+    new webpack.DefinePlugin({
+      DEBUG: process.env.NODE_ENV === 'development'
+    })
   ],
   module: {
     loaders: [
@@ -30,6 +34,18 @@ const config = {
         test: /\.js$/,
         loader: 'babel-loader'
       },
+      {
+        test: /\.js$/,
+        loader: 'string-replace',
+        query: {
+          multiple: [
+            {
+              search: '__PKG_VERSION__', // 版本号
+              replace: `${pkg.version}`
+            }
+          ]
+        }
+      }
     ],
   },
 };

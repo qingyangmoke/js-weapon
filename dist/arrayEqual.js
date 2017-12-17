@@ -1,5 +1,5 @@
 /**
- * @desc 判断两个数组是否相等
+ * 判断两个数组是否相等
  * @param {Array} arr1 - 数组1
  * @param {Array} arr2 - 数组2
  * @return {Boolean} - true 相等 false不相等
