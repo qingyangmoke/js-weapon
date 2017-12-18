@@ -1,6 +1,6 @@
 # files
 *.log
-# npm-debug.log.*
+npm-debug.log.*
 *.zip
 .DS_Store
 
