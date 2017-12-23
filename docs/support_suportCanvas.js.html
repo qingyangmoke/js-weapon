@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>validate/isPhoneNo.js - Documentation</title>
+    <title>support/suportCanvas.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">validate/isPhoneNo.js</h1>
+    <h1 class="page-title">support/suportCanvas.js</h1>
     
 
     
@@ -38,18 +38,17 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- *  判断字符串是否是手机号
- * @param {String} value - 对象
- * @return {Boolean}  - true or false
+ * 是否支持 canavs
+ * @return {boolean} - true or false
  * @example
- * var isPhoneNo = require('js-weapon/isPhoneNo');
- * isPhoneNo('+8613800000000');
-*/
-function isPhoneNo(value) {
-  return /^(0|(\+?86)|17951)?(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/.test(this);
+ * var suportCanavs = require('js-weapon/suportCanavs');
+ * suportCanavs();
+ */
+function suportCanavs() {
+  return !!window['CanvasRenderingContext2D'];
 }
 
-module.exports = isPhoneNo;
+module.exports = suportCanavs;
 </code></pre>
         </article>
     </section>

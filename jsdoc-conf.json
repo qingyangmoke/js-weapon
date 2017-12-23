@@ -1,0 +1,63 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "src/test"
+    ],
+    "includePattern": ".+\\.(js|es)$"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "markdown": {
+    "tags": [
+      "file"
+    ],
+    "excludeTags": [
+      "author"
+    ],
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "dateFormat": "ddd MMM Do YYYY",
+    "outputSourceFiles": true,
+    "outputSourcePath": true,
+    "systemName": "Common Modules",
+    "footer": "",
+    "copyright": "https://github.com/qingyangmoke",
+    "navType": "vertical",
+    "theme": "cosmo",
+    "linenums": true,
+    "collapseSymbols": false,
+    "inverseNav": true,
+    "protocol": "html://",
+    "methodHeadingReturns": true,
+    "logo": {
+      "url": "",
+      "width": "150px",
+      "height": "13px",
+      "link": "#"
+    }
+  },
+  "opts": {
+    "template0tui": "./node_modules/tui-jsdoc-template",
+    "template": "./node_modules/docdash",
+    "encoding": "utf8",
+    "destination": "./docs/",
+    "recurse": true,
+    "debug": true,
+    "readme": "README.md"
+  },
+  "docdash": {
+    "static": true,
+    "sort": false
+  }
+}

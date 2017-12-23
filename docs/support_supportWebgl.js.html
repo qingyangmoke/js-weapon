@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>validate/isPhoneNo.js - Documentation</title>
+    <title>support/supportWebgl.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">validate/isPhoneNo.js</h1>
+    <h1 class="page-title">support/supportWebgl.js</h1>
     
 
     
@@ -37,19 +37,30 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- *  判断字符串是否是手机号
- * @param {String} value - 对象
- * @return {Boolean}  - true or false
+            <pre class="prettyprint source linenums"><code>let _suportWebgl = null;
+/**
+ * 是否支持 webgl
+ * @return {boolean} - true or false
  * @example
- * var isPhoneNo = require('js-weapon/isPhoneNo');
- * isPhoneNo('+8613800000000');
-*/
-function isPhoneNo(value) {
-  return /^(0|(\+?86)|17951)?(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/.test(this);
+ * var suportWebgl = require('js-weapon/suportWebgl');
+ * suportWebgl();
+ */
+function suportWebgl() {
+  if (_suportWebgl === null) {
+    // 只检测一次
+    try {
+      const canvas = document.createElement('canvas');
+      _suportWebgl = !!(window['WebGLRenderingContext'] &amp;&amp; (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+    } catch (e) {
+      _suportWebgl = false;
+    }
+    return !!_suportWebgl;
+  } else {
+    return !!_suportWebgl;
+  }
 }
 
-module.exports = isPhoneNo;
+module.exports = suportWebgl;
 </code></pre>
         </article>
     </section>
